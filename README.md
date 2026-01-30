@@ -71,13 +71,13 @@ Using:
 
 ---
 
- ---> SQL Code (Master CTE + Cleaning)
-
-   You can find the full SQL script here:  
+# SQL Code (Master CTE + Cleaning)
+You can find the full SQL script here:  
    (( master_sql.sql ))
---Contains joins, CTE, cleaning steps, deduplication, datatype fixes
 
----> Excel Dashboard Features
+----Contains joins, CTE, cleaning steps, deduplication, datatype fixes
+
+# Excel Dashboard Features
 
 KPIs Built
 - Total Revenue  
@@ -101,25 +101,25 @@ Slicers
 - Country_group
 
 
---> Key Business Insights
+# Key Business Insights
 
- # Revenue Insights  
+1. Revenue Insights  
 - Bikes(especially road bikes) contribute 86% of total revenue 
 - Mountain bikes (especially Mountain-200 Black 38) are top sellers  
 - Revenue peaks in June–July and drops in November
 
- # Geographic Insights  
+2. Geographic Insights  
 - North America generates 60% of total revenue  
 - US is the strongest territory
 
- # Product Insights  
+3. Product Insights  
 - Touring bikes have highest discounts but lowest sales  
 
- # Operational Insights  
+4. Operational Insights  
 - 99.97% of orders ship within 7 days
 - Very strong logistics and delivery consistency
 
- # Channel Insights  
+5. Channel Insights  
 - Online vs Offline orders are almost equal 
 - Products like Road Frames and Mountain Frames are bought mostly offline
 
