@@ -12,9 +12,9 @@ SELECT TOP 5 * FROM Sales.SalesTerritory;
 SELECT TOP 5 * FROM Person.BusinessEntityAddress;
 SELECT TOP 5 * FROM Person.Address;
 
--------------------------------------------------------------
--- DATA PIPELINE (STEP 1) : JOIN 10+ TABLES WITH CTE
--------------------------------------------------------------
+
+---- DATA PIPELINE (STEP 1) : JOIN 10+ TABLES WITH CTE
+
 
 WITH ctc AS (
     SELECT
@@ -62,9 +62,8 @@ WITH ctc AS (
 )
 SELECT * FROM ctc;
 
--------------------------------------------------------------
--- DATA CLEANING (STEP 2) : REMOVE DUPLICATES INTO FINAL TABLE
--------------------------------------------------------------
+---- DATA CLEANING (STEP 2) : REMOVE DUPLICATES INTO FINAL TABLE
+
 
 SELECT *
 INTO Clen_Table
@@ -75,38 +74,32 @@ FROM (
 ) x
 WHERE rn = 1;
 
--------------------------------------------------------------
--- NULL HANDLING
--------------------------------------------------------------
+
+---- NULL HANDLING
+
 
 UPDATE Clen_Table
 SET City = 'Unknown'
 WHERE City IS NULL;
 
--------------------------------------------------------------
--- DATATYPE CORRECTION
--------------------------------------------------------------
+---- DATATYPE CORRECTION
+
 
 ALTER TABLE Clen_Table ALTER COLUMN Product_Name NVARCHAR(200);
 ALTER TABLE Clen_Table ALTER COLUMN Subcategory_Name NVARCHAR(200);
 ALTER TABLE Clen_Table ALTER COLUMN Category_Name NVARCHAR(200);
 
--------------------------------------------------------------
 -- CLEANUP UNUSED COLUMNS
--------------------------------------------------------------
 
 ALTER TABLE Clen_Table DROP COLUMN rn;
 ALTER TABLE Clen_Table DROP COLUMN ShipDate;
 
--------------------------------------------------------------
 -- FINAL TABLE
--------------------------------------------------------------
 
 SELECT COUNT(*) FROM Clen_Table;
 SELECT * FROM Clen_Table;
 
--------------------------------------------------------------
 -- EXPORT THIS TABLE TO EXCEL FOR DASHBOARD CREATION
--------------------------------------------------------------
 
 SELECT @@SERVERNAME;
+
